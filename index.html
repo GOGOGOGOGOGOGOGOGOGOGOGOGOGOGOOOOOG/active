@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Proxy Search</title>
+    <title>Embedded Google Search</title>
 </head>
 <body>
-    <h2>Search the Proxy</h2>
+    <h2>Search the Web</h2>
+    
+    <!-- Search Box -->
     <input type="text" id="searchQuery" placeholder="Enter your search...">
-    <button onclick="redirectToProxy()">Search</button>
+    <button onclick="searchGoogle()">Search</button>
+
+    <!-- Embedded Search Results -->
+    <div id="googleSearchResults"></div>
+
+    <!-- Google Custom Search Engine Script -->
+    <script async src="<script async src="https://cse.google.com/cse.js?cx=37aac922e04894558">
+</script>
+<div class="gcse-search"></div>"></script>
+    <div class="gcse-search"></div>
 
     <script>
-        function redirectToProxy() {
+        function searchGoogle() {
             var query = document.getElementById("searchQuery").value;
             if (query) {
-                var encodedQuery = encodeURIComponent(query);
-                var proxyUrl = "https://gogogogogogogogogogogogogogogooooog.github.io/active/search.html?q=" + encodedQuery;
-                window.location.href = proxyUrl;
+                var inputElement = document.querySelector(".gsc-input");
+                var searchButton = document.querySelector(".gsc-search-button");
+
+                if (inputElement && searchButton) {
+                    inputElement.value = query;
+                    searchButton.click();
+                }
             }
         }
     </script>
