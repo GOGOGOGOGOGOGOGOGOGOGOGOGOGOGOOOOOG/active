@@ -1,14 +1,31 @@
-<iframe>
-<script>
-function searchGoogle() {
-    var query = document.getElementById("searchQuery").value;
-    if (query) {
-        var encodedQuery = encodeURIComponent(query);
-        var duckDuckGoUrl = "https://duckduckgo.com/?q=" + encodedQuery + "&ia=web";
-        
-        // Load DuckDuckGo results inside the iframe
-        document.getElementById("searchResultsFrame").src = duckDuckGoUrl;
-    }
-}
-<script>
-<iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Search</title>
+</head>
+<body>
+    <h2>Search the Web</h2>
+    
+    <!-- Search Box -->
+    <input type="text" id="searchQuery" placeholder="Enter your search...">
+    <button onclick="searchWeb()">Search</button>
+
+    <!-- Iframe to show results -->
+    <iframe id="searchResultsFrame" width="100%" height="600px" style="border:1px solid #ccc;"></iframe>
+
+    <script>
+        function searchWeb() {
+            var query = document.getElementById("searchQuery").value;
+            if (query) {
+                var encodedQuery = encodeURIComponent(query);
+                var duckDuckGoUrl = "https://duckduckgo.com/?q=" + encodedQuery + "&ia=web";
+
+                // Load DuckDuckGo results in iframe (since Google blocks embedding)
+                document.getElementById("searchResultsFrame").src = duckDuckGoUrl;
+            }
+        }
+    </script>
+</body>
+</html>
