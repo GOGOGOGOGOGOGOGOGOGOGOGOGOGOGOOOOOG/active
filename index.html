@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello, World!</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-      <h1 class="title">Hello World! </h1>
-      <p id="currentTime"></p>
-      <script src="script.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Proxy Search</title>
+</head>
+<body>
+    <input type="text" id="searchQuery" placeholder="Enter your search...">
+    <button onclick="redirectToProxy()">Search</button>
+
+    <script>
+        function redirectToProxy() {
+            var query = document.getElementById("searchQuery").value;
+            if (query) {
+                var encodedQuery = encodeURIComponent(query);
+                var proxyUrl = "https://gogogogogogogogogogogogogogogooooog.github.io/active/search/" + encodedQuery;
+                window.location.href = proxyUrl;
+            }
+        }
+    </script>
+</body>
 </html>
